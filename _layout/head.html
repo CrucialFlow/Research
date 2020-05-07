@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  {{if hasmath}} {{insert head_katex.html }}     {{end}}
+  {{if hascode}} {{insert head_highlight.html }}   {{end}}
+  <link rel="stylesheet" href="/css/franklin.css">
+  <link rel="stylesheet" href="/css/poole_hyde.css">
+  <!-- style adjustments -->
+  <style>
+    html {font-size: 17px;}
+    .franklin-content {position: relative; padding-left: 8%; padding-right: 5%; line-height: 1.35em;}
+    @media (min-width: 940px) {
+      .franklin-content {width: 100%; margin-left: auto; margin-right: auto;}
+    }
+    @media (max-width: 768px) {
+      .franklin-content {padding-left: 6%; padding-right: 6%;}
+    }
+  </style>
+  <link rel="icon" href="/assets/favicon.png">
+  {{isdef title}} <title>{{fill title}}</title>  {{end}}
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      <h2><a href="/">Crucial Flow Research</a></h2>
+      <p class="lead">Research flows in mathematics & music</p>
+    </div>
+    <nav class="sidebar-nav">
+      <a class="sidebar-nav-item {{ispage index.html}}active{{end}}" href="/">Metabasis</a>
+	  <a class="sidebar-nav-item" href="https://music.crucialflow.com">Dream Scatter</a>
+	  <a class="sidebar-nav-item" href="https://grassmann.crucialflow.com">Grassmann.jl</a>
+	  <a class="sidebar-nav-item" href="https://reduce.crucialflow.com">Reduce.jl</a>
+      <a class="sidebar-nav-item {{ispage Fatou.jl/*}}active{{end}}" href="/Fatou.jl/">Fatou.jl</a>
+	  <a class="sidebar-nav-item" href="https://github.com/chakravala">git: chakravala</a>
+    </nav>
+    <p>&copy; {{fill author}}</p>
+  </div>
+</div>
+<div class="content container">
+<!-- Content appended here -->
