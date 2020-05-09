@@ -13,23 +13,26 @@ Interests include applications of Grassmann.jl software to explore relationships
 
 \tableofcontents <!-- you can use \toc as well -->
 
-![research.jpg](/img/CFR-Desktop-1080-Compresssed.jpg)
+<!-- ![research.jpg](/img/CFR-Desktop-1080-Compresssed.jpg) -->
 
 Sponsor this at [liberapay](https://liberapay.com/chakravala), [GitHub Sponsors](https://github.com/sponsors/chakravala), [Patreon](https://patreon.com/dreamscatter), or [Bandcamp](https://music.crucialflow.com); also available as part of the [Tidelift](https://tidelift.com/funding/github/julia/Grassmann) Subscription.
 
-@@center ![Grassmann.jl](/assets/grassmann.png) @@
+@@img-small ![Grassmann.jl](/assets/grassmann.png) @@
 
 ## [Grassmann.jl](https://github.com/chakravala/Grassmann.jl)
 
-*⟨Leibniz-Grassmann-Clifford-Hestenes⟩ differential geometric algebra / multivector simplicial complex*
+*Leibniz-Grassmann-Clifford differential geometric algebra / multivector simplicial complex*
 
+@@img-small [![DOI](https://zenodo.org/badge/101519786.svg)](https://zenodo.org/badge/latestdoi/101519786) @@
+
+@@right [![GitHub stars](https://img.shields.io/github/stars/chakravala/Grassmann.jl?style=social)](https://github.com/chakravala/Grassmann.jl/stargazers)
 [![YouTube](https://img.shields.io/badge/JuliaCon%202019-YouTube-red)](https://www.youtube.com/watch?v=eQjDN0JQ6-s)
 [![DropBox](https://img.shields.io/badge/download_PDF-DropBox-blue.svg)](https://www.dropbox.com/sh/tphh6anw0qwija4/AAACiaXig5djrLVAKLPFmGV-a/Geometric-Algebra?preview=grassmann-juliacon-2019.pdf)
 ![GitHub tag (latest SemVer)](https://img.shields.io/github/v/tag/chakravala/Grassmann.jl)
 [![Docs Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://grassmann.crucialflow.com/stable)
 [![Docs Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://grassmann.crucialflow.com/dev)
 [![Gitter](https://badges.gitter.im/Grassmann-jl/community.svg)](https://gitter.im/Grassmann-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![BiVector](https://img.shields.io/badge/bivector.net-Discourse-blueviolet)](https://bivector.net)
+[![BiVector](https://img.shields.io/badge/bivector.net-Discourse-blueviolet)](https://bivector.net) @@
 
 The [Grassmann.jl](https://github.com/chakravala/Grassmann.jl) package provides tools for doing computations based on multi-linear algebra, differential geometry, and spin groups using the extended tensor algebra known as Leibniz-Grassmann-Clifford-Hestenes geometric algebra.
 Combinatorial products include `∧, ∨, ⋅, *, ⋆, ', ~, d, ∂` (which are the exterior, regressive, inner, and geometric products; along with the Hodge star, adjoint, reversal, differential and boundary operators).
@@ -37,28 +40,13 @@ The kernelized operations are built up from composite sparse tensor products and
 The [DirectSum.jl](https://github.com/chakravala/DirectSum.jl) multivector parametric type polymorphism is based on tangent bundle vector spaces and conformal projective geometry to make the dispatch highly extensible for many applications.
 Additionally, the universal interoperability between different sub-algebras is enabled by [AbstractTensors.jl](https://github.com/chakravala/AbstractTensors.jl), on which the type system is built.
 
-[![DOI](https://zenodo.org/badge/101519786.svg)](https://zenodo.org/badge/latestdoi/101519786)
-[![Financial Contributors on Open Collective](https://opencollective.com/grassmannjl/all/badge.svg?label=sponsors)](https://opencollective.com/grassmannjl)
-[![Liberapay patrons](https://img.shields.io/liberapay/patrons/chakravala.svg)](https://liberapay.com/chakravala)
-[![Build Status](https://travis-ci.org/chakravala/Grassmann.jl.svg?branch=master)](https://travis-ci.org/chakravala/Grassmann.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/c36u0rgtm2rjcquk?svg=true)](https://ci.appveyor.com/project/chakravala/grassmann-jl)
-[![Coverage Status](https://coveralls.io/repos/chakravala/Grassmann.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/chakravala/Grassmann.jl?branch=master)
-[![codecov.io](https://codecov.io/github/chakravala/Grassmann.jl/coverage.svg?branch=master)](https://codecov.io/github/chakravala/Grassmann.jl?branch=master)
-
 ![img/wave.png](/img/wave.png)
 
 ## [DirectSum.jl](https://github.com/chakravala/DirectSum.jl)
 
 *Abstract tangent bundle vector space type operations at compile-time*
 
-[![DOI](https://zenodo.org/badge/169765288.svg)](https://zenodo.org/badge/latestdoi/169765288)
-[![Docs Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://grassmann.crucialflow.com/stable)
-[![Docs Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://grassmann.crucialflow.com/dev)
-[![Gitter](https://badges.gitter.im/Grassmann-jl/community.svg)](https://gitter.im/Grassmann-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Build Status](https://travis-ci.org/chakravala/DirectSum.jl.svg?branch=master)](https://travis-ci.org/chakravala/DirectSum.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/ipaggdeq2f1509pl?svg=true)](https://ci.appveyor.com/project/chakravala/directsum-jl)
-[![Coverage Status](https://coveralls.io/repos/chakravala/DirectSum.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/chakravala/DirectSum.jl?branch=master)
-[![codecov.io](https://codecov.io/github/chakravala/DirectSum.jl/coverage.svg?branch=master)](https://codecov.io/github/chakravala/DirectSum.jl?branch=master)
+@@img-small [![DOI](https://zenodo.org/badge/169765288.svg)](https://zenodo.org/badge/latestdoi/169765288) @@
 
 This package is a work in progress providing the necessary tools to work with arbitrary `Manifold` elements specified with an encoding having optional origin, point at infinity, and tangent bundle parameter.
 Due to the parametric type system for the generating `TensorBundle`, the Julia compiler can fully preallocate and often cache values efficiently ahead of run-time.
@@ -68,14 +56,7 @@ Although intended for use with the [Grassmann.jl](https://github.com/chakravala/
 
 *Tensor algebra abstract type interoperability with vector bundle parameter*
 
-[![DOI](https://zenodo.org/badge/169811826.svg)](https://zenodo.org/badge/latestdoi/169811826)
-[![Docs Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://grassmann.crucialflow.com/stable)
-[![Docs Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://grassmann.crucialflow.com/dev)
-[![Gitter](https://badges.gitter.im/Grassmann-jl/community.svg)](https://gitter.im/Grassmann-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Build Status](https://travis-ci.org/chakravala/AbstractTensors.jl.svg?branch=master)](https://travis-ci.org/chakravala/AbstractTensors.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/yey8huk505h4b81u?svg=true)](https://ci.appveyor.com/project/chakravala/abstracttensors-jl)
-[![Coverage Status](https://coveralls.io/repos/chakravala/AbstractTensors.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/chakravala/AbstractTensors.jl?branch=master)
-[![codecov.io](https://codecov.io/github/chakravala/AbstractTensors.jl/coverage.svg?branch=master)](https://codecov.io/github/chakravala/AbstractTensors.jl?branch=master)
+@@img-small [![DOI](https://zenodo.org/badge/169811826.svg)](https://zenodo.org/badge/latestdoi/169811826) @@
 
 The `AbstractTensors` package is intended for universal interoperability of the abstract `TensorAlgebra` type system.
 All `TensorAlgebra{V}` subtypes have type parameter `V`, used to store a `TensorBundle` value obtained from [DirectSum.jl](https://github.com/chakravala/DirectSum.jl).
@@ -84,15 +65,14 @@ For example, this is mainly used in [Grassmann.jl](https://github.com/chakravala
 By itself, this package does not impose any specifications or structure on the `TensorAlgebra{V}` subtypes and elements, aside from requiring `V` to be a `Manifold`.
 This means that different packages can create tensor types having a common underlying `TensorBundle` structure.
 
-@@center ![Dendriform.jl](/assets/dendriform.png) @@
+@@img-small ![Dendriform.jl](/assets/dendriform.png) @@
 
 ## [Dendriform.jl](https://github.com/chakravala/Dendriform.jl)
 
-*Dendriform dialgebra algorithms to compute using Loday's arithmetic on groves of planar binary trees*
+*Dendriform dialgebra algorithms to compute Loday's arithmetic on groves of binary trees*
 
-[![Build Status](https://travis-ci.org/chakravala/Dendriform.jl.svg?branch=master)](https://travis-ci.org/chakravala/Dendriform.jl) [![Build status](https://ci.appveyor.com/api/projects/status/j7t3oc1doeot6i72?svg=true)](https://ci.appveyor.com/project/chakravala/grovealg-jl) [![Coverage Status](https://coveralls.io/repos/github/chakravala/Dendriform.jl/badge.svg?branch=master)](https://coveralls.io/github/chakravala/Dendriform.jl?branch=master) [![codecov.io](http://codecov.io/github/chakravala/Dendriform.jl/coverage.svg?branch=master)](http://codecov.io/github/chakravala/Dendriform.jl?branch=master)
-[![](https://img.shields.io/badge/docs-stable-blue.svg)](https://chakravala.github.io/Dendriform.jl/stable)
-[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://chakravala.github.io/Dendriform.jl/latest)
+@@right [![](https://img.shields.io/badge/docs-stable-blue.svg)](https://chakravala.github.io/Dendriform.jl/stable)
+[![](https://img.shields.io/badge/docs-latest-blue.svg)](https://chakravala.github.io/Dendriform.jl/latest) @@
 
 Provides the types `PBTree` for planar binary trees, `Grove` for tree collections of constant degree, and `GroveBin` to compress grove data. This package defines various essential operations on planar binary trees and groves like `∪` for `union`; `∨` for `graft`; `left` and `right` for branching; `⋖`, `⋗`, `<`, `>`, `≤`, `≥` for Tamari's partial ordering; `⊴` for `between`; `/` and `\\` (i.e. `over` and `under`); and the `dashv` and `vdash` operations `⊣`, `⊢`, `+`, `*` for dendriform algebra.
 
@@ -108,33 +88,24 @@ View the documentation [stable](https://chakravala.github.io/Dendriform.jl/stabl
 
 *Adaptive multistep numerical ODE solver based on [Grassmann.jl](https://github.com/chakravala/Grassmann.jl) element assembly*
 
-[![DOI](https://zenodo.org/badge/223493781.svg)](https://zenodo.org/badge/latestdoi/223493781)
-[![Docs Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://grassmann.crucialflow.com/stable)
-[![Docs Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://grassmann.crucialflow.com/dev)
-[![Gitter](https://badges.gitter.im/Grassmann-jl/community.svg)](https://gitter.im/Grassmann-jl/community?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge)
-[![Build Status](https://travis-ci.org/chakravala/Adapode.jl.svg?branch=master)](https://travis-ci.org/chakravala/Adapode.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/wpu43q92o06afi0a?svg=true)](https://ci.appveyor.com/project/chakravala/adapode-jl)
-[![Coverage Status](https://coveralls.io/repos/chakravala/Adapode.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/chakravala/Adapode.jl?branch=master)
-[![codecov.io](https://codecov.io/github/chakravala/Adapode.jl/coverage.svg?branch=master)](https://codecov.io/github/chakravala/Adapode.jl?branch=master)
+@@img-small [![DOI](https://zenodo.org/badge/223493781.svg)](https://zenodo.org/badge/latestdoi/223493781) @@
 
 This Julia project originally started as a FORTRAN 95 project called [adapode](https://github.com/chakravala/adapode).
 It is possible to work with L2 projection on a mesh and partial differential equations can also be assembled with various additional methods.
 More general problems for finite element boundary value problems are also enabled by mesh representations imported from external sources. These methods can automatically generalize to higher dimensional manifolds and is compatible with discrete differential geometry.
 
-@@center ![Reduce.jl](/assets/reduce.png) @@
+@@img-small ![Reduce.jl](/assets/reduce.png) @@
 
 ## [Reduce.jl](https://github.com/chakravala/Reduce.jl)
 
 *Symbolic parser generator for Julia language expressions using REDUCE algebra*
 
-[![DOI](https://zenodo.org/badge/90334073.svg)](https://zenodo.org/badge/latestdoi/90334073)
+@@img-small [![DOI](https://zenodo.org/badge/90334073.svg)](https://zenodo.org/badge/latestdoi/90334073) @@
+
+@@right [![GitHub stars](https://img.shields.io/github/stars/chakravala/Reduce.jl?style=social)](https://github.com/chakravala/Reduce.jl/stargazers)
 [![Docs Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://reduce.crucialflow.com/stable)
 [![Docs Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://reduce.crucialflow.com/dev)
-[![Join the chat at gitter](https://badges.gitter.im/Reduce-jl/Lobby.svg)](https://gitter.im/Reduce-jl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
-[![Build Status](https://travis-ci.org/chakravala/Reduce.jl.svg?branch=master)](https://travis-ci.org/chakravala/Reduce.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/kaqu2yri4vxyr63n?svg=true)](https://ci.appveyor.com/project/chakravala/reduce-jl)
-[![Coverage Status](https://coveralls.io/repos/github/chakravala/Reduce.jl/badge.svg?branch=master)](https://coveralls.io/github/chakravala/Reduce.jl?branch=master)
-[![codecov.io](http://codecov.io/github/chakravala/Reduce.jl/coverage.svg?branch=master)](http://codecov.io/github/chakravala/Reduce.jl?branch=master)
+[![Join the chat at gitter](https://badges.gitter.im/Reduce-jl/Lobby.svg)](https://gitter.im/Reduce-jl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) @@
 
 The premise behind Reduce.jl is based on the idea that `Symbol` and `Expr` types can be translated into computer algebra rewrite commands and then automatically parsed back into Julia ASTs, essentially extending the Julia language into a fully programable symbolic AST rewrite environment.
 
@@ -150,8 +121,6 @@ This package is a heavily modifed version of Nathan Smith's [Maxima.jl](https://
 
 *Fatou sets in Julia (Fractals, Newton basins, Mandelbrot)*
 
-[![Build Status](https://travis-ci.org/chakravala/Fatou.jl.svg?branch=master)](https://travis-ci.org/chakravala/Fatou.jl) [![Build status](https://ci.appveyor.com/api/projects/status/mdathjmu7jg57u77?svg=true)](https://ci.appveyor.com/project/chakravala/fatou-jl) [![Coverage Status](https://coveralls.io/repos/github/chakravala/Fatou.jl/badge.svg?branch=master)](https://coveralls.io/github/chakravala/Fatou.jl?branch=master) [![codecov.io](http://codecov.io/github/chakravala/Fatou.jl/coverage.svg?branch=master)](http://codecov.io/github/chakravala/Fatou.jl?branch=master)
-
 This package enables users of Julia lang to easily generate, explore, and share fractals of Julia, Mandelbrot, and Newton type. The name Fatou comes from the mathematician after whom the Fatou sets are named. Note that the Julia language is not named after the mathematician Julia after whom the Julia sets are named. This is a mere coincidence.
 See [Explore Fatou sets & Fractals](/Fatou) on here for detailed *examples*.
 
@@ -161,11 +130,7 @@ Please share your favorite fractals as `Fatou` snippet in the [discussion thread
 
 *Toolkit for studying numerical analysis and floating point algebra round-off*
 
-[![Build Status](https://travis-ci.org/chakravala/Wilkinson.jl.svg?branch=master)](https://travis-ci.org/chakravala/Wilkinson.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/a1d9jt5ollwat0na/branch/master?svg=true)](https://ci.appveyor.com/project/chakravala/wilkinson-jl)
-[![Coverage Status](https://coveralls.io/repos/chakravala/Wilkinson.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/chakravala/Wilkinson.jl?branch=master)
-[![codecov.io](http://codecov.io/github/chakravala/Wilkinson.jl/coverage.svg?branch=master)](http://codecov.io/github/chakravala/Wilkinson.jl?branch=master)
-[![DOI](https://zenodo.org/badge/136759772.svg)](https://zenodo.org/badge/latestdoi/136759772)
+@@img-small [![DOI](https://zenodo.org/badge/136759772.svg)](https://zenodo.org/badge/latestdoi/136759772) @@
 
 This package is intended to help provide a complementary detailed analysis of polynomial rounding error estimates using newly defined local and global characteristic methods.
 Using automated testing of different polynomial forms, an optimal expression form can be determined.
@@ -179,12 +144,7 @@ The purpose of this package is to help with the analysis of the characteristic m
 
 *Typeset scattered graph data rewriter based on LaTeX nodes*
 
-[![DOI](https://zenodo.org/badge/124144717.svg)](https://zenodo.org/badge/latestdoi/124144717)
-[![Build Status](https://travis-ci.org/chakravala/VerTeX.jl.svg?branch=master)](https://travis-ci.org/chakravala/VerTeX.jl)
-[![Build status](https://ci.appveyor.com/api/projects/status/8poc90nqimq5903s/branch/master?svg=true)](https://ci.appveyor.com/project/chakravala/vertex-jl/branch/master)
-[![Coverage Status](https://coveralls.io/repos/chakravala/VerTeX.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/chakravala/VerTeX.jl?branch=master)
-[![codecov.io](http://codecov.io/github/chakravala/VerTeX.jl/coverage.svg?branch=master)](http://codecov.io/github/chakravala/VerTeX.jl?branch=master)
-[![Liberapay patrons](https://img.shields.io/liberapay/patrons/chakravala.svg)](https://liberapay.com/chakravala)
+@@img-small [![DOI](https://zenodo.org/badge/124144717.svg)](https://zenodo.org/badge/latestdoi/124144717) @@
 
 This project is a prototype concept for maintaining a body of research and citations via a computational graph database.
 The `VerTeX` typeset scattered graph data rewriter is based on a new graph data format called VerTeX, which parses and generates LaTeX documents from nodes.
@@ -213,5 +173,3 @@ Use the DropBox link to access the most up-to-date PDF, which is automatically u
 <iframe style="border: 0; width: 540px; height: 877px;" src="https://bandcamp.com/EmbeddedPlayer/album=2675505715/size=large/bgcol=333333/linkcol=4ec5ec/transparent=true/" seamless><a href="http://music.crucialflow.com/album/transient-phase">Transient Phase by Dream Scatter</a></iframe>
 <iframe style="border: 0; width: 540px; height: 877px;" src="https://bandcamp.com/EmbeddedPlayer/album=2136683033/size=large/bgcol=333333/linkcol=ffffff/transparent=true/" seamless><a href="http://music.crucialflow.com/album/spectral-radius">Spectral Radius by Dream Scatter</a></iframe>
 ~~~
-
-![scatter.jpg](/img/IMG-20131218-00767-extension-wallpaper-compressed.jpg)
