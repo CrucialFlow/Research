@@ -5,7 +5,7 @@
 the config file by setting hasmath = false for instance and just setting it to true
 where appropriate -->
 
-# [Crucial Flow Research](https://crucialflow.com)
+# [Crucial Flow Research](https://crucialflow.com/research)
 
 Projects include mathematics and computer algebra research for differential geometric algebras, with an interest in aerospace engineering applications.
 Foundations of the open source free software Grassmann.jl are based on differential geometric algebra and developed in the Julia language.
@@ -42,31 +42,6 @@ Additionally, the universal interoperability between different sub-algebras is e
 
 ![img/wave.png](/img/wave.png)
 
-## [DirectSum.jl](https://github.com/chakravala/DirectSum.jl)
-
-*Abstract tangent bundle vector space type operations at compile-time*
-
-@@img-small [![DOI](https://zenodo.org/badge/169765288.svg)](https://zenodo.org/badge/latestdoi/169765288) @@
-
-This package is a work in progress providing the necessary tools to work with arbitrary `Manifold` elements specified with an encoding having optional origin, point at infinity, and tangent bundle parameter.
-Due to the parametric type system for the generating `TensorBundle`, the Julia compiler can fully preallocate and often cache values efficiently ahead of run-time.
-Although intended for use with the [Grassmann.jl](https://github.com/chakravala/Grassmann.jl) package, `DirectSum` can be used independently.
-
-## [AbstractTensors.jl](https://github.com/chakravala/AbstractTensors.jl)
-
-*Tensor algebra abstract type interoperability with vector bundle parameter*
-
-@@img-small [![DOI](https://zenodo.org/badge/169811826.svg)](https://zenodo.org/badge/latestdoi/169811826) @@
-
-The `AbstractTensors` package is intended for universal interoperability of the abstract `TensorAlgebra` type system.
-All `TensorAlgebra{V}` subtypes have type parameter `V`, used to store a `TensorBundle` value obtained from [DirectSum.jl](https://github.com/chakravala/DirectSum.jl).
-
-For example, this is mainly used in [Grassmann.jl](https://github.com/chakravala/Grassmann.jl) to define various `SubAlgebra`, `TensorGraded` and `TensorMixed` types, each with subtypes. Externalizing the abstract type helps extend the dispatch to other packages.
-By itself, this package does not impose any specifications or structure on the `TensorAlgebra{V}` subtypes and elements, aside from requiring `V` to be a `Manifold`.
-This means that different packages can create tensor types having a common underlying `TensorBundle` structure.
-
-@@img-small ![Dendriform.jl](/assets/dendriform.png) @@
-
 ## [Dendriform.jl](https://github.com/chakravala/Dendriform.jl)
 
 *Dendriform dialgebra algorithms to compute Loday's arithmetic on groves of binary trees*
@@ -96,33 +71,14 @@ More general problems for finite element boundary value problems are also enable
 
 @@img-small ![Reduce.jl](/assets/reduce.png) @@
 
-## [Reduce.jl](https://github.com/chakravala/Reduce.jl)
-
-*Symbolic parser generator for Julia language expressions using REDUCE algebra*
-
-@@img-small [![DOI](https://zenodo.org/badge/90334073.svg)](https://zenodo.org/badge/latestdoi/90334073) @@
-
-@@right [![GitHub stars](https://img.shields.io/github/stars/chakravala/Reduce.jl?style=social)](https://github.com/chakravala/Reduce.jl/stargazers)
-[![Docs Stable](https://img.shields.io/badge/docs-stable-blue.svg)](https://reduce.crucialflow.com/stable)
-[![Docs Dev](https://img.shields.io/badge/docs-dev-blue.svg)](https://reduce.crucialflow.com/dev)
-[![Join the chat at gitter](https://badges.gitter.im/Reduce-jl/Lobby.svg)](https://gitter.im/Reduce-jl/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge) @@
-
-The premise behind Reduce.jl is based on the idea that `Symbol` and `Expr` types can be translated into computer algebra rewrite commands and then automatically parsed back into Julia ASTs, essentially extending the Julia language into a fully programable symbolic AST rewrite environment.
-
-REDUCE is a system for general algebraic computations of interest to mathematicians, scientists and engineers.
-Reduce.jl is an interface for applying symbolic manipulation on [Julia expressions](https://docs.julialang.org/en/latest/manual/metaprogramming) using [REDUCE](http://www.reduce-algebra.com)'s term rewrite system:
-
-The upstream REDUCE software created by Anthony C. Hearn is maintained by collaborators on [SourceForge](https://sourceforge.net/p/reduce-algebra/).
-
-This package is a heavily modifed version of Nathan Smith's [Maxima.jl](https://github.com/nsmith5/Maxima.jl) with many additional features.
-
-
 ## [Fatou.jl](https://github.com/chakravala/Fatou.jl)
 
 *Fatou sets in Julia (Fractals, Newton basins, Mandelbrot)*
 
 This package enables users of Julia lang to easily generate, explore, and share fractals of Julia, Mandelbrot, and Newton type. The name Fatou comes from the mathematician after whom the Fatou sets are named. Note that the Julia language is not named after the mathematician Julia after whom the Julia sets are named. This is a mere coincidence.
 See [Explore Fatou sets & Fractals](/Fatou.jl) on here for detailed *examples*.
+
+Please share your favorite fractals as `Fatou` snippet in the [discussion thread](https://discourse.julialang.org/t/ann-fatou-jl-easily-share-julia-fractals)!
 
 ## [Wilkinson.jl](https://github.com/chakravala/Wilkinson.jl)
 

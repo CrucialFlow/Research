@@ -277,6 +277,16 @@ a.sidebar-nav-item:focus {
 .sidebar-nav-item.active {
   font-weight: bold;
 }
+.sidebar-nav-more {
+  line-height: 1.75;
+}
+a.sidebar-nav-more:hover,
+a.sidebar-nav-more:focus {
+  text-decoration: underline;
+}
+.sidebar-nav-more.active {
+  font-weight: bold;
+}
 
 /* Sticky sidebar
  *
