@@ -343,9 +343,11 @@ Orbit example (1):
 
 ```Julia
 juliafill("z*exp(1.5*(1-z^2/50))",∂=[0,15],x0=1,orbit=24) |> orbit
+juliafill("z*exp(1.5*(1-z^2/50))",∂=[0,15],x0=0.1,orbit=10,depth=3) |> orbit
 ```
 
 ![/img/frac/o1-orbit.png](/img/frac/o1-orbit.png)
+![/img/frac/o1-orbit2.png](/img/frac/o1-orbit2.png)
 
 Orbit example (2):
 
@@ -395,11 +397,9 @@ juliafill("z^2-1",∂=[-2,2],cmap="hsv",n=800) |> fatou |> plot
 Orbit example(7):
 
 ```Julia
-juliafill("sin(z)",∂=[0,2],x0=1.7,orbit=128,depth=8) |> orbit
 juliafill("sin(z)",∂=[0,2],n=700) |> fatou |> plot
 ```
 
-![/img/frac/o7-orbit.png](/img/frac/o7-orbit.png)
 ![/img/frac/o7-limit.png](/img/frac/o7-limit.png)
 
 Orbit example (8):
@@ -455,7 +455,7 @@ juliafill("z^3",∂=[0,2],n=500,cmap="ocean") |> fatou |> plot
 Orbit example (13):
 
 ```Julia
-juliafill("z^2",∂=[-2.5,2.5],n=500,cmap="nipy_spectral") |> fatou |> plot
+juliafill("sqrt(z)",∂=[-3.2,6.4],cmap="ocean",n=500) |> fatou |> plot
 ```
 
 ![/img/frac/o13-limit.png](/img/frac/o13-limit.png)
@@ -486,3 +486,10 @@ juliafill("sin(2z)",∂=[-0.35pi,0.7pi],n=800,cmap="nipy_spectral") |> fatou |> 
 ![/img/frac/o16-orbit.png](/img/frac/o16-orbit.png)
 ![/img/frac/o16-limit.png](/img/frac/o16-limit.png)
 
+Orbit example (17):
+
+```Julia
+juliafill("3z+2",∂=[-pi,pi],n=500) |> fatou |> plot
+```
+
+![/img/frac/o17-limit.png](/img/frac/o17-limit.png)

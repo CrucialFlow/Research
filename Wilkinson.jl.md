@@ -319,12 +319,6 @@ Based on the results from the analysis, the recommended algorithm for selecting 
 e -> (h=horner(e); f=factor(h); exprval(h)[1] <= exprval(f)[1] ? h : f)
 ```
 Due to the computational simplicity of the expression value method in comparison to the floating point error bound Simpson-Stieltjes integral estimation method, the expression value method is the demonstrably faster, more efficient, and equally reliable method for determining the optimal expression form characterization.
-Some of the possible applications where an optimal polynomial form might be useful include the differential geometric algebra of the \textit{Grassmann.jl} package, in which the multivariate \textit{Leibniz.jl} Taylor polynomial forms are manipulated via operator algebras of tensor fields acting on differential forms \cite{grassmann-juliacon-2019}.
-
-
-**Acknowledgements**:
-Thanks to Thomas Lewis for discussing the results, Filip Saidak for suggestions,  and Maya Chhetri for teaching the Stieltjes integral.
-Thanks to Nathan Smith from the Julia community and Arthur Norman and Eberhart Shruefer from the Reduce developer team for answering questions and collaborating on the software that enabled the creation of the \textit{Reduce.jl} software.
 
 ## References
 
