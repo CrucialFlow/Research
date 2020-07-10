@@ -176,39 +176,39 @@ PolynomialComparison(:((((x - 1) ^ 2 * x ^ 2 - 1) ^ 2 - 1) ^ 2))</code></pre>
 <h2 id="conclusion"><a href="#conclusion">Conclusion</a></h2>  When a randomized polynomial is constructed, it is procedurally generated using its form&#39;s recursive abstract syntax tree constructor. For forms like factorized and Horner, and some others, it is typically found that the particular randomized term is most optimal in the same form it was &quot;generated in,&quot; since the form is simplest. By studying the characteristics of each method, a more efficient construct of code generation can be applied to numerical basis polynomials. Results indicate \(\nu(\mathcal{ H}(f)) \leq \nu(\mathcal{ F}(f))\) if and only if \(\Xi(f,\epsilon,\Delta)\geq0\) with a 100.0&#37; agreement rate,  implying that the simpler method is able to succesfully select for the optimal polynomial form to minimize error propagation measured in the more cumbersome integration. Based on the results from the analysis, the recommended algorithm for selecting the optimal form is: <pre><code class="language-julia">e -> (h=horner(e); f=factor(h); exprval(h)[1] <= exprval(f)[1] ? h : f)</code></pre> Due to the computational simplicity of the expression value method in comparison to the floating point error bound Simpson-Stieltjes integral estimation method, the expression value method is the demonstrably faster, more efficient, and equally reliable method for determining the optimal expression form characterization.</p>
 <h2 id="references"><a href="#references">References</a></h2>
 <ul>
-<li><p><a id="borodin"></a> <strong>A. B. Borodin</strong>,  Horner&#39;s rule is uniquely optimal, Theory of machines and computations 1971.</p>
+<li><p><a id="borodin" class="anchor"></a> <strong>A. B. Borodin</strong>,  Horner&#39;s rule is uniquely optimal, Theory of machines and computations 1971.</p>
 </li>
-<li><p><a id="wilkinson"></a> <strong>J. H. Wilkinson</strong>,  Rounding Errors in Algebraic Processes, 1963.</p>
+<li><p><a id="wilkinson" class="anchor"></a> <strong>J. H. Wilkinson</strong>,  Rounding Errors in Algebraic Processes, 1963.</p>
 </li>
-<li><p><a id="muller"></a> <strong>K. H. Muller</strong>,  Rounding error analysis of Horner&#39;s scheme, Computing 1982.</p>
+<li><p><a id="muller" class="anchor"></a> <strong>K. H. Muller</strong>,  Rounding error analysis of Horner&#39;s scheme, Computing 1982.</p>
 </li>
-<li><p><a id="rump-bunger-jeannerod"></a> <strong>S. M. Rump</strong>, <strong>F. Bunger</strong>, <strong>C.-P. Jeannerod</strong>,  Improved error bounds for floating-point products and Horner&#39;s scheme, BIT Numer Math 2015.</p>
+<li><p><a id="rump-bunger-jeannerod" class="anchor"></a> <strong>S. M. Rump</strong>, <strong>F. Bunger</strong>, <strong>C.-P. Jeannerod</strong>,  Improved error bounds for floating-point products and Horner&#39;s scheme, BIT Numer Math 2015.</p>
 </li>
-<li><p><a id="newbery"></a> <strong>A. C. R. Newbery</strong>,  Error analysis for polynomial evaluation, Mathematics of Computation 1974.</p>
+<li><p><a id="newbery" class="anchor"></a> <strong>A. C. R. Newbery</strong>,  Error analysis for polynomial evaluation, Mathematics of Computation 1974.</p>
 </li>
-<li><p><a id="oliver"></a> <strong>J. Oliver</strong>,  Rounding error propagation in polynomial evaluation schemes, Journal of Computational and Applied Mathematics 1979.</p>
+<li><p><a id="oliver" class="anchor"></a> <strong>J. Oliver</strong>,  Rounding error propagation in polynomial evaluation schemes, Journal of Computational and Applied Mathematics 1979.</p>
 </li>
-<li><p><a id="barrio"></a> <strong>R. Barrio</strong>,  A unified rounding error bound for polynomial evaluations, Advances in Computational and Applied Mathematics 2003.</p>
+<li><p><a id="barrio" class="anchor"></a> <strong>R. Barrio</strong>,  A unified rounding error bound for polynomial evaluations, Advances in Computational and Applied Mathematics 2003.</p>
 </li>
-<li><p><a id="sapir"></a> <strong>M. V. Sapir</strong>,  Combinatorial Algebra: Syntax and Semantics, 2014.</p>
+<li><p><a id="sapir" class="anchor"></a> <strong>M. V. Sapir</strong>,  Combinatorial Algebra: Syntax and Semantics, 2014.</p>
 </li>
-<li><p><a id="epperson"></a> <strong>J. F. Epperson</strong>,  An Introduction fo Numerical Methods and Analysis, 2013.</p>
+<li><p><a id="epperson" class="anchor"></a> <strong>J. F. Epperson</strong>,  An Introduction fo Numerical Methods and Analysis, 2013.</p>
 </li>
-<li><p><a id="higham"></a> <strong>N. J. Higham</strong>,  Accuracy and Stability of Numerical Algorithms, 2002.</p>
+<li><p><a id="higham" class="anchor"></a> <strong>N. J. Higham</strong>,  Accuracy and Stability of Numerical Algorithms, 2002.</p>
 </li>
-<li><p><a id="demmel"></a> <strong>J. W. Demmel</strong>,  Applied Numerical Linear Algebra, 1997.</p>
+<li><p><a id="demmel" class="anchor"></a> <strong>J. W. Demmel</strong>,  Applied Numerical Linear Algebra, 1997.</p>
 </li>
-<li><p><a id="rudin"></a> <strong>W. Rudin</strong>,  Principles of Mathematical Analysis, 1976.</p>
+<li><p><a id="rudin" class="anchor"></a> <strong>W. Rudin</strong>,  Principles of Mathematical Analysis, 1976.</p>
 </li>
-<li><p><a id="tveito"></a> <strong>A. Tveito</strong>, <strong>H. Langtangen</strong>, <strong>B. Nielsen</strong>, <strong>X. Cai</strong>,  Elements of Scientific Computing, 2010.</p>
+<li><p><a id="tveito" class="anchor"></a> <strong>A. Tveito</strong>, <strong>H. Langtangen</strong>, <strong>B. Nielsen</strong>, <strong>X. Cai</strong>,  Elements of Scientific Computing, 2010.</p>
 </li>
-<li><p><a id="chakravala-syntax-tree"></a> <strong>M. Reed</strong>,  SyntaxTree.jl, <a href="https://github.com/chakravala/SyntaxTree.jl">https://github.com/chakravala/SyntaxTree.jl</a> 2018.</p>
+<li><p><a id="chakravala-syntax-tree" class="anchor"></a> <strong>M. Reed</strong>,  SyntaxTree.jl, <a href="https://github.com/chakravala/SyntaxTree.jl">https://github.com/chakravala/SyntaxTree.jl</a> 2018.</p>
 </li>
-<li><p><a id="chakravala-wilkinson"></a> <strong>M. Reed</strong>,  Wilkinson.jl, <a href="htts://github.com/chakravala/Wilkinson.jl">https://github.com/chakravala/Wilkinson.jl</a> 2018.</p>
+<li><p><a id="chakravala-wilkinson" class="anchor"></a> <strong>M. Reed</strong>,  Wilkinson.jl, <a href="htts://github.com/chakravala/Wilkinson.jl">https://github.com/chakravala/Wilkinson.jl</a> 2018.</p>
 </li>
-<li><p><a id="chakravala-reduce"></a> <strong>M. Reed</strong>,  Reduce.jl, <a href="https://github.com/chakravala/Reduce.jl">https://github.com/chakravala/Reduce.jl</a> 2017.</p>
+<li><p><a id="chakravala-reduce" class="anchor"></a> <strong>M. Reed</strong>,  Reduce.jl, <a href="https://github.com/chakravala/Reduce.jl">https://github.com/chakravala/Reduce.jl</a> 2017.</p>
 </li>
-<li><p><a id="grassmann-juliacon-2019"></a> <strong>M. Reed</strong>,  Differential geometric algebra using Leibniz, Grassmann, Proceedings of JuliaCon 2019.</p>
+<li><p><a id="grassmann-juliacon-2019" class="anchor"></a> <strong>M. Reed</strong>,  Differential geometric algebra using Leibniz, Grassmann, Proceedings of JuliaCon 2019.</p>
 </li>
 </ul>
 <div class="page-foot">
