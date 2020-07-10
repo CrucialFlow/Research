@@ -116,6 +116,7 @@ The upstream REDUCE software created by Anthony C. Hearn is maintained by collab
 
 This package is a heavily modifed version of Nathan Smith's [Maxima.jl](https://github.com/nsmith5/Maxima.jl) with many additional features.
 
+![chakravala](https://avatars0.githubusercontent.com/u/18372368?s=400&u=e882385da78bec442e576713ab49497e1627c418)
 
 ## [Fatou.jl](https://github.com/chakravala/Fatou.jl)
 
