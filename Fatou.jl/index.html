@@ -51,9 +51,9 @@
 </div>
 <div class="content container">
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="explore_fatou_sets_amp_fractals"><a href="#explore_fatou_sets_amp_fractals">Explore Fatou sets &amp; fractals</a></h1>
+<div class="franklin-content"><h1 id="explore_fatou_sets_fractals"><a href="#explore_fatou_sets_fractals">Explore Fatou sets &amp; fractals</a></h1>
 <p>Julia package for Fatou sets. Install using <code>Pkg.add&#40;&quot;Fatou&quot;&#41;</code> in Julia. See <a href="https://github.com/chakravala/Fatou.jl">https://github.com/chakravala/Fatou.jl</a> for source code. This package provides: <code>fatou</code>, <code>juliafill</code>, <code>mandelbrot</code>, <code>newton</code>, <code>basin</code>, <code>plot</code>, and <code>orbit</code>; along with various internal functionality using <code>Reduce</code> and Julia expressions to help compute <code>Fatou.FilledSet</code> efficiently. Full documentation is included. The <code>fatou</code> function can be applied to a <code>Fatou.Define</code> object to produce a <code>Fatou.FilledSet</code>, which can then be passed as an argument to the <code>plot</code> function of <code>PyPlot</code>. Creation of <code>Fatou.Define</code> objects is done via passing a function expression &#40;in variables <code>z</code>, <code>c</code>&#41; and optional keyword arguments to <code>juliafill</code>, <code>mandelbrot</code>, and <code>newton</code>.</p>
-<div class="franklin-toc"><ol><li><a href="#explore_fatou_sets_amp_fractals">Explore Fatou sets &amp; fractals</a><ol><li><a href="#background">Background</a></li><li><a href="#example_details_amp_plotting">Example details &amp; plotting</a><ol><li><a href="#generalized_newton_basin_fractals">Generalized Newton basin fractals</a></li><li><a href="#more_orbit_examples">More orbit examples</a></li></ol></li></ol></li></ol></div>
+<div class="franklin-toc"><ol><li><a href="#explore_fatou_sets_fractals">Explore Fatou sets &amp; fractals</a><ol><li><a href="#background">Background</a></li><li><a href="#example_details_plotting">Example details &amp; plotting</a><ol><li><a href="#generalized_newton_basin_fractals">Generalized Newton basin fractals</a></li><li><a href="#more_orbit_examples">More orbit examples</a></li></ol></li></ol></li></ol></div>
 <h2 id="background"><a href="#background">Background</a></h2>
 <p>This package enables users of Julia lang to easily generate, explore, and share fractals of Julia, Mandelbrot, and Newton type. The name Fatou comes from the mathematician after whom the Fatou sets are named. Note that the Julia language is not named after the mathematician Julia after whom the Julia sets are named. This is a mere coincidence.</p>
 <p><strong>Definition</strong> <em>&#40;Julia set&#41;</em>: For any holomorphic function on a complex plane, the boundary of the set of points whose result diverges when function is iteratively evaluated at points.</p>
@@ -63,215 +63,223 @@
 <p>The package has essentially two different plotting modes controlled by the <code>iter</code> boolean keyword, which toggles whether to color the image by iteration count or whether to use a default &#40;or custom&#41; limit-value coloring function.</p>
 <p>The number of Julia threads available is detected at the startup and is reported it back. When a specified Fatou set is computed, multi-threading is used to compute the pixels. Since each pixel is independent of any other pixel, it doesn’t matter in what order or on how many threads it is computed, the more you use the faster it is. The environment variable <code>JULIA_NUM_THREADS</code> is used to enable multi-threading for more than 1 thread.</p>
 <p>Please share your favorite fractals as <code>Fatou</code> snippet in the <a href="https://discourse.julialang.org/t/ann-fatou-jl-easily-share-julia-fractals">discussion thread</a>&#33;</p>
-<h2 id="example_details_amp_plotting"><a href="#example_details_amp_plotting">Example details &amp; plotting</a></h2>
-<code>Fatou.Define</code> provides the following optional keyword arguments:</p>
-<pre><code class="language-Julia">Q::Expr 	= :(abs2(z)),           # escape criterion, (z, c) -> Q
-C::Expr 	= :((angle(z)/(2π))*n^p)# coloring, (z, n=iter., p=exp.) -> C
-∂    = π/2, # Array{Float64,1}      # Bounds, [x(a),x(b),y(a),y(b)]
-n::Integer  = 176,                  # vertical grid points
-N::Integer  = 35,                   # max. iterations
-ϵ::Number   = 4,                    # basin ϵ-Limit criterion
-iter::Bool  = false,                # toggle iteration mode
-p::Number   = 0,                    # iteration color exponent
-newt::Bool  = false,                # toggle Newton mode
-m::Number   = 0,                    # Newton multiplicity factor
-mandel::Bool= false,                # toggle Mandelbrot mode
-seed::Number= 0.0+0.0im,            # Mandelbrot seed value
-x0          = nothing,              # orbit starting point
-orbit::Int  = 0,                    # orbit cobweb depth
-depth::Int  = 1,                    # depth of function composition
-cmap::String= ""                    # imshow color map</code></pre>
+<h2 id="example_details_plotting"><a href="#example_details_plotting">Example details &amp; plotting</a></h2>
+<p><code>Fatou.Define</code> provides the following optional keyword arguments:</p>
+<pre><code class="language-Julia">Q::Expr 	&#61; :&#40;abs2&#40;z&#41;&#41;,           # escape criterion, &#40;z, c&#41; -&gt; Q
+C::Expr 	&#61; :&#40;&#40;angle&#40;z&#41;/&#40;2π&#41;&#41;*n^p&#41;# coloring, &#40;z, n&#61;iter., p&#61;exp.&#41; -&gt; C
+∂    &#61; π/2, # Array&#123;Float64,1&#125;      # Bounds, &#91;x&#40;a&#41;,x&#40;b&#41;,y&#40;a&#41;,y&#40;b&#41;&#93;
+n::Integer  &#61; 176,                  # vertical grid points
+N::Integer  &#61; 35,                   # max. iterations
+ϵ::Number   &#61; 4,                    # basin ϵ-Limit criterion
+iter::Bool  &#61; false,                # toggle iteration mode
+p::Number   &#61; 0,                    # iteration color exponent
+newt::Bool  &#61; false,                # toggle Newton mode
+m::Number   &#61; 0,                    # Newton multiplicity factor
+mandel::Bool&#61; false,                # toggle Mandelbrot mode
+seed::Number&#61; 0.0&#43;0.0im,            # Mandelbrot seed value
+x0          &#61; nothing,              # orbit starting point
+orbit::Int  &#61; 0,                    # orbit cobweb depth
+depth::Int  &#61; 1,                    # depth of function composition
+cmap::String&#61; &quot;&quot;                    # imshow color map</code></pre>
 <p>A Fatou set is a collection of complex valued orbits of an iterated function. To help illustrate this, an additional feature is a plot function designed to visualize real-valued-orbits. <code>Fatou</code> can be initialized with <code>using Fatou, PyPlot</code> or <code>ImageInTerminal</code>.</p>
 <p>When <code>using ImageInTerminal</code>, the display of a <code>Fatou.FilledSet</code> will be plotted automatically in the terminal. The <code>orbit</code> method also has optional <code>UnicodePlots</code> compatibility. Additional plotting support can be added via Pull-Request by adding another <code>Requires</code> script to the <code>__init__&#40;&#41;</code> function definition.</p>
 <p><strong>Basic Usage</strong> &#40;filled-in Julia set&#41;</p>
 <p>Another feature is a plot function designed to visualize real-valued-orbits. The following is a cobweb orbit plot of a function:</p>
-<pre><code class="language-Julia">juliafill(:(z^2-0.67),∂=[-1.25,1.5],x0=1.25,orbit=17,depth=3,n=147) |> orbit</code></pre>
+<pre><code class="language-Julia">juliafill&#40;:&#40;z^2-0.67&#41;,∂&#61;&#91;-1.25,1.5&#93;,x0&#61;1.25,orbit&#61;17,depth&#61;3,n&#61;147&#41; |&gt; orbit</code></pre>
 <p><img src="/img/frac/orbit.png" alt="/img/frac/orbit.png" /></p>
 <p>With <code>fatou</code> and <code>plot</code> it is simple to display a filled in Julia set:</p>
-<pre><code class="language-Julia">c = -0.06 + 0.67im
-nf = juliafill(:(z^2+$c),∂=[-1.5,1.5,-1,1],N=80,n=1501,cmap="gnuplot",iter=true)
-plot(fatou(nf), bare=true)</code></pre>
+<pre><code class="language-Julia">c &#61; -0.06 &#43; 0.67im
+nf &#61; juliafill&#40;:&#40;z^2&#43;&#36;c&#41;,∂&#61;&#91;-1.5,1.5,-1,1&#93;,N&#61;80,n&#61;1501,cmap&#61;&quot;gnuplot&quot;,iter&#61;true&#41;
+plot&#40;fatou&#40;nf&#41;, bare&#61;true&#41;</code></pre>
 <p><img src="/img/frac/filled-julia.png" alt="/img/frac/filled-julia.png" /></p>
 <p>It is also possible to switch to <code>mandelbrot</code> mode:</p>
-<pre><code class="language-Julia">mandelbrot(:(z^2+c),n=800,N=20,∂=[-1.91,0.51,-1.21,1.21],cmap="gist_earth") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">mandelbrot&#40;:&#40;z^2&#43;c&#41;,n&#61;800,N&#61;20,∂&#61;&#91;-1.91,0.51,-1.21,1.21&#93;,cmap&#61;&quot;gist_earth&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/mandelbrot.png" alt="/img/frac/mandelbrot.png" /></p>
 <h3 id="generalized_newton_basin_fractals"><a href="#generalized_newton_basin_fractals">Generalized Newton basin fractals</a></h3>
 <p>Another type are the Julia sets of the generalized Newton&#39;s method,</p>
 \[ z \mapsto z - m \frac{f(z)}{f'(z)}.) \]
-<p>Consider the polynomial map <code>f &#61; :&#40;z^3-1&#41;</code> with variable <code>m &#61; 1</code>. To get a Julia function that applies the Newton method to this formula use <code>η &#61; Fatou.newton_raphson&#40;f,m&#41;</code>. Repeated function composition converges towards cube-root of 1. For example, <pre><code class="language-Julia">julia>  ξ = Fatou.funk(η); ζ = 2.1; [ξ(ζ,0), [Fatou.recomp(η,ζ,k) for k ∈ 2:4]...]
-4-element Array{Float64,1}:
+<p>Consider the polynomial map <code>f &#61; :&#40;z^3-1&#41;</code> with variable <code>m &#61; 1</code>. To get a Julia function that applies the Newton method to this formula use <code>η &#61; Fatou.newton_raphson&#40;f,m&#41;</code>. Repeated function composition converges towards cube-root of 1. For example,</p>
+<pre><code class="language-Julia">julia&gt;  ξ &#61; Fatou.funk&#40;η&#41;; ζ &#61; 2.1; &#91;ξ&#40;ζ,0&#41;, &#91;Fatou.recomp&#40;η,ζ,k&#41; for k ∈ 2:4&#93;...&#93;
+4-element Array&#123;Float64,1&#125;:
  1.47559
  1.13681
  1.01581
  1.00024</code></pre>
 <p>This package comes with a plot function designed to visualize real-valued-orbits. The following is a cobweb orbit plot of the function with the Newton method applied to it using</p>
-<pre><code class="language-Julia">newton(:(z^3-1),∂=[0.4,2.5],x0=2.1,orbit=4,depth=2,n=42) |> orbit</code></pre>
+<pre><code class="language-Julia">newton&#40;:&#40;z^3-1&#41;,∂&#61;&#91;0.4,2.5&#93;,x0&#61;2.1,orbit&#61;4,depth&#61;2,n&#61;42&#41; |&gt; orbit</code></pre>
 <p><img src="/img/frac/nf1-orbit.png" alt="/img/frac/nf1-orbit.png" /></p>
 <p>The set of points that are within an <code>ϵ</code> neighborhood of the roots <code>ri</code> of the function <code>f</code> is</p>
 \[ D_0(\epsilon) = \left\{ z\in\mathbb{C}: \left|\,z - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
-<code>Fatou</code> also provides <code>basin</code> to display the the Newton / Fatou basins using set notation in LaTeX in <code>IJulia</code>.</p>
-<pre><code class="language-Julia">map(display,[basin(newton(:(z^3-1)),i) for i ∈ 1:3])</code></pre>
+<p><code>Fatou</code> also provides <code>basin</code> to display the the Newton / Fatou basins using set notation in LaTeX in <code>IJulia</code>.</p>
+<pre><code class="language-Julia">map&#40;display,&#91;basin&#40;newton&#40;:&#40;z^3-1&#41;&#41;,i&#41; for i ∈ 1:3&#93;&#41;</code></pre>
 \[ D_1(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{z^{3} - 1}{3 z^{2}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 \[ D_2(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{\left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{z^{3} - 1}{3 z^{2}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 \[ D_3(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{\left(z - \frac{\left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{\left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{\left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{z^{3} - 1}{3 z^{2}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Now compute the Newton fractal Julia set for a function with annotated plot of root convergents &#40;1&#41;:</p>
-<pre><code class="language-Julia">newton(:(z^3-1),ϵ=0.001,n=800,cmap="brg") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">newton&#40;:&#40;z^3-1&#41;,ϵ&#61;0.001,n&#61;800,cmap&#61;&quot;brg&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/nf1-roots.png" alt="/img/frac/nf1-roots.png" /></p>
 <p>Compute the Newton fractal Julia set for a function with annotated plot of iteration count:</p>
-<pre><code class="language-Julia">nf = newton(:(z^3-1),n=800,ϵ=0.1,N=25,iter=true,cmap="jet")
-nf |> fatou |> plot
-basin(nf,3)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;z^3-1&#41;,n&#61;800,ϵ&#61;0.1,N&#61;25,iter&#61;true,cmap&#61;&quot;jet&quot;&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,3&#41;</code></pre>
 <p><img src="/img/frac/nf1-iter.png" alt="/img/frac/nf1-iter.png" /></p>
 \[ D_3(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{\left(z - \frac{\left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{\left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{\left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{3} - 1}{3 \left(z - \frac{z^{3} - 1}{3 z^{2}}\right)^{2}} - \frac{z^{3} - 1}{3 z^{2}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Now change the multiplicity parameter m from 1 to 2 &#40;2&#41;. # Repeated function composition produces further singularities:</p>
-<pre><code class="language-Julia">nf = newton(:(z^3-1),m=2,n=800,N=37,ϵ=0.27,iter=true,cmap="ocean",orbit=17,depth=3)
-orbit(z->nf.F(z,0), [-π 2π -1],17,3,147); PyPlot.ylim(-2,7)
-nf |> fatou |> plot
-basin(nf,3)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;z^3-1&#41;,m&#61;2,n&#61;800,N&#61;37,ϵ&#61;0.27,iter&#61;true,cmap&#61;&quot;ocean&quot;,orbit&#61;17,depth&#61;3&#41;
+orbit&#40;z-&gt;nf.F&#40;z,0&#41;, &#91;-π 2π -1&#93;,17,3,147&#41;; PyPlot.ylim&#40;-2,7&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,3&#41;</code></pre>
 <p><img src="/img/frac/nf2-orbit.png" alt="/img/frac/nf2-orbit.png" /> <img src="/img/frac/nf2-iter.png" alt="/img/frac/nf2-iter.png" /></p>
 \[ D_3(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{2 \left(z - \frac{2 \left(z - \frac{2 z^{3} - 2}{3 z^{2}}\right)^{3} - 2}{3 \left(z - \frac{2 z^{3} - 2}{3 z^{2}}\right)^{2}} - \frac{2 z^{3} - 2}{3 z^{2}}\right)^{3} - 2}{3 \left(z - \frac{2 \left(z - \frac{2 z^{3} - 2}{3 z^{2}}\right)^{3} - 2}{3 \left(z - \frac{2 z^{3} - 2}{3 z^{2}}\right)^{2}} - \frac{2 z^{3} - 2}{3 z^{2}}\right)^{2}} - \frac{2 \left(z - \frac{2 z^{3} - 2}{3 z^{2}}\right)^{3} - 2}{3 \left(z - \frac{2 z^{3} - 2}{3 z^{2}}\right)^{2}} - \frac{2 z^{3} - 2}{3 z^{2}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Set multiplicity parameter to <code>m &#61; -0.5</code> for this generalized Newton fractal &#40;3&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(z^3-1),m=-0.5,n=800,N=10,cmap="hsv",x0=0.9,orbit=17,depth=4)
-nf |> fatou |> plot
-orbit(nf); PyPlot.ylim(-7,2)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;z^3-1&#41;,m&#61;-0.5,n&#61;800,N&#61;10,cmap&#61;&quot;hsv&quot;,x0&#61;0.9,orbit&#61;17,depth&#61;4&#41;
+nf |&gt; fatou |&gt; plot
+orbit&#40;nf&#41;; PyPlot.ylim&#40;-7,2&#41;</code></pre>
 <p><img src="/img/frac/nf3-limit.png" alt="/img/frac/nf3-limit.png" /> <img src="/img/frac/nf3-orbit.png" alt="/img/frac/nf3-orbit.png" /></p>
 <p>Change polynomial function &#40;4&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(z^3-2z-5),n=800,p=0.3,cmap="RdGy")
-orbit(z->nf.F(z,0), [-1.5π π/2 0.2],27,2,147); PyPlot.ylim(-11,3)
-nf |> fatou |> plot
-basin(nf,2)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;z^3-2z-5&#41;,n&#61;800,p&#61;0.3,cmap&#61;&quot;RdGy&quot;&#41;
+orbit&#40;z-&gt;nf.F&#40;z,0&#41;, &#91;-1.5π π/2 0.2&#93;,27,2,147&#41;; PyPlot.ylim&#40;-11,3&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,2&#41;</code></pre>
 <p><img src="/img/frac/nf4-orbit.png" alt="/img/frac/nf4-orbit.png" /> <img src="/img/frac/nf4-roots.png" alt="/img/frac/nf4-roots.png" /></p>
 \[ D_2(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{- 2 z + \left(z - \frac{z^{3} - 2 z - 5}{3 z^{2} - 2}\right)^{3} - 5 + \frac{2 z^{3} - 4 z - 10}{3 z^{2} - 2}}{3 \left(z - \frac{z^{3} - 2 z - 5}{3 z^{2} - 2}\right)^{2} - 2} - \frac{z^{3} - 2 z - 5}{3 z^{2} - 2} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Generalized Newton fractal example &#40;5&#41;:</p>
-<pre><code class="language-Julia">newton(:(z^2-1),m=1+1im,∂=π/2.4,n=800,N=10,cmap="hsv") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">newton&#40;:&#40;z^2-1&#41;,m&#61;1&#43;1im,∂&#61;π/2.4,n&#61;800,N&#61;10,cmap&#61;&quot;hsv&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/nf5-limit.png" alt="/img/frac/nf5-limit.png" /></p>
 <p>Generalized Newton fractal example &#40;6&#41;:</p>
-<pre><code class="language-Julia">newton(:(z^2-im),m=-0.5+2im,n=800,N=10,cmap="hsv") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">newton&#40;:&#40;z^2-im&#41;,m&#61;-0.5&#43;2im,n&#61;800,N&#61;10,cmap&#61;&quot;hsv&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/nf6-limit.png" alt="/img/frac/nf6-limit.png" /></p>
 <p>Generalized Newton fractal example &#40;7&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(z^8-15z^4-16),m=1.5,∂=[-2π/3,0,-π/3,π/3],n=1501,N=17,cmap="gist_stern",x0=-1,orbit=17,depth=3)
-nf |> orbit; PyPlot.ylim(-3,7)
-nf |> fatou |> plot
-basin(nf,1)</code></pre> <img src="/img/frac/nf7-orbit.png" alt="/img/frac/nf7-orbit.png" /> <img src="/img/frac/nf7-limit.png" alt="/img/frac/nf7-limit.png" /></p>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;z^8-15z^4-16&#41;,m&#61;1.5,∂&#61;&#91;-2π/3,0,-π/3,π/3&#93;,n&#61;1501,N&#61;17,cmap&#61;&quot;gist_stern&quot;,x0&#61;-1,orbit&#61;17,depth&#61;3&#41;
+nf |&gt; orbit; PyPlot.ylim&#40;-3,7&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,1&#41;</code></pre>
+<p><img src="/img/frac/nf7-orbit.png" alt="/img/frac/nf7-orbit.png" /> <img src="/img/frac/nf7-limit.png" alt="/img/frac/nf7-limit.png" /></p>
 \[ D_1(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{1.5 z^{8} - 75961.5}{8 z^{7}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Generalized Newton fractal example &#40;8&#41;:</p>
-<pre><code class="language-Julia">newton(:(z^8-15z^4-16),m=-0.5+2im,∂=[-2π/3,0,-π/3,π/3],n=500,N=10,cmap="hsv") |> fatou |> plot</code></pre> <img src="/img/frac/nf8-limit.png" alt="/img/frac/nf8-limit.png" /></p>
+<pre><code class="language-Julia">newton&#40;:&#40;z^8-15z^4-16&#41;,m&#61;-0.5&#43;2im,∂&#61;&#91;-2π/3,0,-π/3,π/3&#93;,n&#61;500,N&#61;10,cmap&#61;&quot;hsv&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
+<p><img src="/img/frac/nf8-limit.png" alt="/img/frac/nf8-limit.png" /></p>
 <p>Generalized Newton fractal example &#40;9&#41;:</p>
-<pre><code class="language-Julia">nf=newton(:(sin(z)),m=1,∂=[-2π/3,-π/3,-π/6,π/6],n=800,N=17,iter=true,cmap="gist_earth",x0=-1.5,orbit=17,depth=3)
-nf |> orbit; PyPlot.ylim(-30,30)
-nf |> fatou |> plot
-basin(nf,3)</code></pre> <img src="/img/frac/nf9-orbit.png" alt="/img/frac/nf9-orbit.png" /> <img src="/img/frac/nf9-iter.png" alt="/img/frac/nf9-iter.png" /></p>
+<pre><code class="language-Julia">nf&#61;newton&#40;:&#40;sin&#40;z&#41;&#41;,m&#61;1,∂&#61;&#91;-2π/3,-π/3,-π/6,π/6&#93;,n&#61;800,N&#61;17,iter&#61;true,cmap&#61;&quot;gist_earth&quot;,x0&#61;-1.5,orbit&#61;17,depth&#61;3&#41;
+nf |&gt; orbit; PyPlot.ylim&#40;-30,30&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,3&#41;</code></pre>
+<p><img src="/img/frac/nf9-orbit.png" alt="/img/frac/nf9-orbit.png" /> <img src="/img/frac/nf9-iter.png" alt="/img/frac/nf9-iter.png" /></p>
 \[ D_3(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} - \frac{\sin{\left (z - \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} \right )}}{\cos{\left (z - \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} \right )}} + \frac{\sin{\left (- z + \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} + \frac{\sin{\left (z - \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} \right )}}{\cos{\left (z - \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} \right )}} \right )}}{\cos{\left (- z + \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} + \frac{\sin{\left (z - \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} \right )}}{\cos{\left (z - \frac{\sin{\left (z \right )}}{\cos{\left (z \right )}} \right )}} \right )}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Generalized Newton fractal example &#40;10&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(sin(z)-1),m=1-1im,∂=[-2π/3,-π/3,-π/6,π/6],n=800,N=33,iter=true,ϵ=0.05,cmap="cubehelix")
-nf |> fatou |> plot
-basin(nf,2)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;sin&#40;z&#41;-1&#41;,m&#61;1-1im,∂&#61;&#91;-2π/3,-π/3,-π/6,π/6&#93;,n&#61;800,N&#61;33,iter&#61;true,ϵ&#61;0.05,cmap&#61;&quot;cubehelix&quot;&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,2&#41;</code></pre>
 <p><img src="/img/frac/nf10-iter.png" alt="/img/frac/nf10-iter.png" /></p>
 \[ D_2(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{1}{\cos{\left (z \right )}} \left(1 + i\right) \left(\sin{\left (z \right )} - 1\right) - \frac{\left(1 + i\right) \left(\sin{\left (z - \frac{1}{\cos{\left (z \right )}} \left(1 + i\right) \left(\sin{\left (z \right )} - 1\right) \right )} - 1\right)}{\cos{\left (z - \frac{1}{\cos{\left (z \right )}} \left(1 + i\right) \left(\sin{\left (z \right )} - 1\right) \right )}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Generalized Newton fractal example &#40;11&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(z^6+z^3-1),m=(1-0.4im),∂=[-0.5,0.5,-1,0],n=800,N=33,ϵ=1e-7,
-        p=0.7,cmap="YlGnBu",C="(-angle(z)/(2π))*n^e")
-nf |> fatou |> plot
-basin(nf,1)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;z^6&#43;z^3-1&#41;,m&#61;&#40;1-0.4im&#41;,∂&#61;&#91;-0.5,0.5,-1,0&#93;,n&#61;800,N&#61;33,ϵ&#61;1e-7,
+        p&#61;0.7,cmap&#61;&quot;YlGnBu&quot;,C&#61;&quot;&#40;-angle&#40;z&#41;/&#40;2π&#41;&#41;*n^e&quot;&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,1&#41;</code></pre>
 <p><img src="/img/frac/nf11-limit.png" alt="/img/frac/nf11-limit.png" /></p>
 \[ D_1(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{\left(1.0 + 0.4 i\right) \left(z^{6} - z^{3} - 1\right)}{6 z^{5} - 3 z^{2}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Generalized Newton fractal example &#40;12&#41;:</p>
-<pre><code class="language-Julia">newton(:(cos(z)-1),m=-0.5+2im,n=350,N=15,ϵ=0,cmap="hsv") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">newton&#40;:&#40;cos&#40;z&#41;-1&#41;,m&#61;-0.5&#43;2im,n&#61;350,N&#61;15,ϵ&#61;0,cmap&#61;&quot;hsv&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/nf12-limit.png" alt="/img/frac/nf12-limit.png" /></p>
-<pre><code class="language-Julia">newton(:(cos(z)-1),m=0.5-2im,n=350,N=15,ϵ=0,cmap="hsv") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">newton&#40;:&#40;cos&#40;z&#41;-1&#41;,m&#61;0.5-2im,n&#61;350,N&#61;15,ϵ&#61;0,cmap&#61;&quot;hsv&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/nf12-alt.png" alt="/img/frac/nf12-alt.png" /></p>
 <p>Generalized Newton fractal example &#40;13&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(cos(z)-1),m=1,∂=π,n=500,N=35,ϵ=0,cmap="YlGnBu",x0=-2,orbit=17,depth=3)
-nf |> fatou |> plot
-display(basin(nf,2))
-orbit(nf); PyPlot.ylim(-5,1)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;cos&#40;z&#41;-1&#41;,m&#61;1,∂&#61;π,n&#61;500,N&#61;35,ϵ&#61;0,cmap&#61;&quot;YlGnBu&quot;,x0&#61;-2,orbit&#61;17,depth&#61;3&#41;
+nf |&gt; fatou |&gt; plot
+display&#40;basin&#40;nf,2&#41;&#41;
+orbit&#40;nf&#41;; PyPlot.ylim&#40;-5,1&#41;</code></pre>
 <p><img src="/img/frac/nf13-roots.png" alt="/img/frac/nf13-roots.png" /></p>
 \[ D_2(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z + \frac{\cos{\left (z \right )} - 1}{\sin{\left (z \right )}} + \frac{\cos{\left (z + \frac{\cos{\left (z \right )} - 1}{\sin{\left (z \right )}} \right )} - 1}{\sin{\left (z + \frac{\cos{\left (z \right )} - 1}{\sin{\left (z \right )}} \right )}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p><img src="/img/frac/nf13-orbit.png" alt="/img/frac/nf13-orbit.png" /></p>
 <p>Generalized Newton fractal example &#40;14&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(z^5-3im*z^3-(5+2im)z^2+3z+1),m=1-0.24im,∂=2.0,n=800,ϵ=0.01,iter=true,N=27,cmap="brg") 
-nf |> fatou |> plot
-basin(nf,1)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;z^5-3im*z^3-&#40;5&#43;2im&#41;z^2&#43;3z&#43;1&#41;,m&#61;1-0.24im,∂&#61;2.0,n&#61;800,ϵ&#61;0.01,iter&#61;true,N&#61;27,cmap&#61;&quot;brg&quot;&#41; 
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,1&#41;</code></pre>
 <p><img src="/img/frac/nf14-iter.png" alt="/img/frac/nf14-iter.png" /></p>
 \[ D_1(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \frac{\left(1.0 - 0.24 i\right) \left(z^{5} - 3 i z^{3} - z^{2} \left(5 + 2 i\right) + 3 z + 1\right)}{5 z^{4} - 9 i z^{2} - 2 z \left(5 + 2 i\right) + 3} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Generalized Newton fractal example &#40;15&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(log(z)),m=1+1im,∂=2π,n=500,N=27,cmap="brg")
-nf |> fatou |> plot
-basin(nf,2)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;log&#40;z&#41;&#41;,m&#61;1&#43;1im,∂&#61;2π,n&#61;500,N&#61;27,cmap&#61;&quot;brg&quot;&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,2&#41;</code></pre>
 <p><img src="/img/frac/nf15-limit.png" alt="/img/frac/nf15-limit.png" /></p>
 \[ D_1(\epsilon) = \left\{z\in\mathbb{C}:\left|\,- z \left(1 - i\right) \log{\left (z \right )} + z - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Generalized Newton fractal example &#40;16&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(z^(4.0+3.0im)-1),m=2.1,∂=π,n=500,N=27,cmap="terrain")
-nf |> fatou |> plot
-basin(nf,1)</code></pre> <img src="/img/frac/nf16-limit.png" alt="/img/frac/nf16-limit.png" /></p>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;z^&#40;4.0&#43;3.0im&#41;-1&#41;,m&#61;2.1,∂&#61;π,n&#61;500,N&#61;27,cmap&#61;&quot;terrain&quot;&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,1&#41;</code></pre>
+<p><img src="/img/frac/nf16-limit.png" alt="/img/frac/nf16-limit.png" /></p>
 \[ D_1(\epsilon) = \left\{z\in\mathbb{C}:\left|\,- \frac{z z^{-4 - 3 i}}{4 + 3 i} \left(2.1 z^{4 + 3 i} - 2.1\right) + z - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p>Generalized Newton fractal example &#40;17&#41;:</p>
-<pre><code class="language-Julia">nf = newton(:(e^z+1),m=1,∂=2π,n=800,iter=true,N=27,cmap="brg",x0=5,orbit=11,depth=3)
-orbit(nf); PyPlot.ylim(-10,7)
-nf |> fatou |> plot
-basin(nf,2)</code></pre>
+<pre><code class="language-Julia">nf &#61; newton&#40;:&#40;e^z&#43;1&#41;,m&#61;1,∂&#61;2π,n&#61;800,iter&#61;true,N&#61;27,cmap&#61;&quot;brg&quot;,x0&#61;5,orbit&#61;11,depth&#61;3&#41;
+orbit&#40;nf&#41;; PyPlot.ylim&#40;-10,7&#41;
+nf |&gt; fatou |&gt; plot
+basin&#40;nf,2&#41;</code></pre>
 \[ D_2(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \left(e^{z} + 1\right) e^{- z} - \left(e^{z - \left(e^{z} + 1\right) e^{- z}} + 1\right) e^{- z + \left(e^{z} + 1\right) e^{- z}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p><img src="/img/frac/nf17-iter.png" alt="/img/frac/nf17-iter.png" /> <img src="/img/frac/nf17-orbit.png" alt="/img/frac/nf17-orbit.png" /></p>
 <h3 id="more_orbit_examples"><a href="#more_orbit_examples">More orbit examples</a></h3>
 <p>Orbit example &#40;1&#41;:</p>
-<pre><code class="language-Julia">juliafill("z*exp(1.5*(1-z^2/50))",∂=[0,15],x0=1,orbit=24) |> orbit
-juliafill("z*exp(1.5*(1-z^2/50))",∂=[0,15],x0=0.1,orbit=10,depth=3) |> orbit</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;z*exp&#40;1.5*&#40;1-z^2/50&#41;&#41;&quot;,∂&#61;&#91;0,15&#93;,x0&#61;1,orbit&#61;24&#41; |&gt; orbit
+juliafill&#40;&quot;z*exp&#40;1.5*&#40;1-z^2/50&#41;&#41;&quot;,∂&#61;&#91;0,15&#93;,x0&#61;0.1,orbit&#61;10,depth&#61;3&#41; |&gt; orbit</code></pre>
 <p><img src="/img/frac/o1-orbit.png" alt="/img/frac/o1-orbit.png" /> <img src="/img/frac/o1-orbit2.png" alt="/img/frac/o1-orbit2.png" /></p>
 <p>Orbit example &#40;2&#41;:</p>
-<pre><code class="language-Julia">juliafill("z*exp(1.5*(1-z/50))",∂=[0,64],x0=1,orbit=10,depth=2) |> orbit</code></pre> <img src="/img/frac/o2-orbit.png" alt="/img/frac/o2-orbit.png" /></p>
+<pre><code class="language-Julia">juliafill&#40;&quot;z*exp&#40;1.5*&#40;1-z/50&#41;&#41;&quot;,∂&#61;&#91;0,64&#93;,x0&#61;1,orbit&#61;10,depth&#61;2&#41; |&gt; orbit</code></pre>
+<p><img src="/img/frac/o2-orbit.png" alt="/img/frac/o2-orbit.png" /></p>
 <p>Orbit example &#40;3&#41;:</p>
-<pre><code class="language-Julia">juliafill("z^2-1",∂=[-2,2],x0=0,orbit=10,depth=5) |> orbit
-juliafill("z^2-1",∂=[-2,2],iter=true,n=800) |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;z^2-1&quot;,∂&#61;&#91;-2,2&#93;,x0&#61;0,orbit&#61;10,depth&#61;5&#41; |&gt; orbit
+juliafill&#40;&quot;z^2-1&quot;,∂&#61;&#91;-2,2&#93;,iter&#61;true,n&#61;800&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o3-orbit.png" alt="/img/frac/o3-orbit.png" /> <img src="/img/frac/o3-iter.png" alt="/img/frac/o3-iter.png" /></p>
 <p>Orbit example &#40;4&#41;:</p>
-<pre><code class="language-Julia">juliafill("z^2+1.",∂=[-2,2],n=800,cmap="hsv") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;z^2&#43;1.&quot;,∂&#61;&#91;-2,2&#93;,n&#61;800,cmap&#61;&quot;hsv&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o4-limit.png" alt="/img/frac/o4-limit.png" /></p>
 <p>Orbit example &#40;5&#41;:</p>
-<pre><code class="language-Julia">juliafill("cos(z)",∂=[0,2],x0=1.7,orbit=17,depth=3) |> orbit
-juliafill("cos(z)",∂=[0.5,2],n=500) |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;cos&#40;z&#41;&quot;,∂&#61;&#91;0,2&#93;,x0&#61;1.7,orbit&#61;17,depth&#61;3&#41; |&gt; orbit
+juliafill&#40;&quot;cos&#40;z&#41;&quot;,∂&#61;&#91;0.5,2&#93;,n&#61;500&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o5-orbit.png" alt="/img/frac/o5-orbit.png" /> <img src="/img/frac/o5-limit.png" alt="/img/frac/o5-limit.png" /></p>
 <p>Orbit example &#40;6&#41;:</p>
-<pre><code class="language-Julia">juliafill("z^2-1",∂=[-2,2],x0=sqrt(2),orbit=10,depth=5) |> orbit
-juliafill("z^2-1",∂=[-2,2],cmap="hsv",n=800) |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;z^2-1&quot;,∂&#61;&#91;-2,2&#93;,x0&#61;sqrt&#40;2&#41;,orbit&#61;10,depth&#61;5&#41; |&gt; orbit
+juliafill&#40;&quot;z^2-1&quot;,∂&#61;&#91;-2,2&#93;,cmap&#61;&quot;hsv&quot;,n&#61;800&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o6-orbit.png" alt="/img/frac/o6-orbit.png" /> <img src="/img/frac/o6-limit.png" alt="/img/frac/o6-limit.png" /></p>
 <p>Orbit example&#40;7&#41;:</p>
-<pre><code class="language-Julia">juliafill("sin(z)",∂=[0,2],n=700) |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;sin&#40;z&#41;&quot;,∂&#61;&#91;0,2&#93;,n&#61;700&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o7-limit.png" alt="/img/frac/o7-limit.png" /></p>
 <p>Orbit example &#40;8&#41;:</p>
-<pre><code class="language-Julia">juliafill("z^2-z-4",∂=[-4,4],x0=0.99999999+sqrt(5),orbit=37,depth=3) |> orbit
-juliafill("z^2-z-4",∂=[-3,3],n=500,cmap="gist_earth") |> fatou |> plot
-newton("z^2-z-4",∂=[-4,0],n=700,cmap="RdGy",p=0.5) |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;z^2-z-4&quot;,∂&#61;&#91;-4,4&#93;,x0&#61;0.99999999&#43;sqrt&#40;5&#41;,orbit&#61;37,depth&#61;3&#41; |&gt; orbit
+juliafill&#40;&quot;z^2-z-4&quot;,∂&#61;&#91;-3,3&#93;,n&#61;500,cmap&#61;&quot;gist_earth&quot;&#41; |&gt; fatou |&gt; plot
+newton&#40;&quot;z^2-z-4&quot;,∂&#61;&#91;-4,0&#93;,n&#61;700,cmap&#61;&quot;RdGy&quot;,p&#61;0.5&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o8-orbit.png" alt="/img/frac/o8-orbit.png" /> <img src="/img/frac/o8-limit.png" alt="/img/frac/o8-limit.png" /> <img src="/img/frac/o8-roots.png" alt="/img/frac/o8-roots.png" /></p>
 <p>Orbit example &#40;9&#41;:</p>
-<pre><code class="language-Julia">juliafill("(-3/2)*z^2+5z/2+1",∂=[-0.7,2.5],x0=0.001,orbit=37,depth=3) |> orbit
-juliafill("(-3/2)*z^2+5z/2+1",∂=[-0.7,2.5],n=800,iter=true) |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;&#40;-3/2&#41;*z^2&#43;5z/2&#43;1&quot;,∂&#61;&#91;-0.7,2.5&#93;,x0&#61;0.001,orbit&#61;37,depth&#61;3&#41; |&gt; orbit
+juliafill&#40;&quot;&#40;-3/2&#41;*z^2&#43;5z/2&#43;1&quot;,∂&#61;&#91;-0.7,2.5&#93;,n&#61;800,iter&#61;true&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o9-orbit.png" alt="/img/frac/o9-orbit.png" /> <img src="/img/frac/o9-iter.png" alt="/img/frac/o9-iter.png" /></p>
 <p>Orbit example &#40;10&#41;:</p>
-<pre><code class="language-Julia">juliafill("z^2-2",∂=[-2.5,2.5],x0=0.01,orbit=100) |> orbit
-juliafill("z^2-2",∂=[-2.5,2.5],n=500,p=0.1,cmap="ocean") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;z^2-2&quot;,∂&#61;&#91;-2.5,2.5&#93;,x0&#61;0.01,orbit&#61;100&#41; |&gt; orbit
+juliafill&#40;&quot;z^2-2&quot;,∂&#61;&#91;-2.5,2.5&#93;,n&#61;500,p&#61;0.1,cmap&#61;&quot;ocean&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o10-orbit.png" alt="/img/frac/o10-orbit.png" /> <img src="/img/frac/o10-limit.png" alt="/img/frac/o10-limit.png" /></p>
 <p>Orbit example &#40;11&#41;:</p>
-<pre><code class="language-Julia">juliafill("2z%1",∂=[0,1],x0=0.3,orbit=70,depth=3) |> orbit
-juliafill("2z%1",∂=[0,1],x0=1/9,orbit=70,depth=3) |> orbit</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;2z&#37;1&quot;,∂&#61;&#91;0,1&#93;,x0&#61;0.3,orbit&#61;70,depth&#61;3&#41; |&gt; orbit
+juliafill&#40;&quot;2z&#37;1&quot;,∂&#61;&#91;0,1&#93;,x0&#61;1/9,orbit&#61;70,depth&#61;3&#41; |&gt; orbit</code></pre>
 <p><img src="/img/frac/o11-orbit-1.png" alt="/img/frac/o11-orbit-1.png" /> <img src="/img/frac/o11-orbit-2.png" alt="/img/frac/o11-orbit-2.png" /></p>
 <p>Orbit example &#40;12&#41;:</p>
-<pre><code class="language-Julia">juliafill("z^3",∂=[0,2],n=500,cmap="ocean") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;z^3&quot;,∂&#61;&#91;0,2&#93;,n&#61;500,cmap&#61;&quot;ocean&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o12-limit.png" alt="/img/frac/o12-limit.png" /></p>
 <p>Orbit example &#40;13&#41;:</p>
-<pre><code class="language-Julia">juliafill("sqrt(z)",∂=[-3.2,6.4],cmap="ocean",n=500) |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;sqrt&#40;z&#41;&quot;,∂&#61;&#91;-3.2,6.4&#93;,cmap&#61;&quot;ocean&quot;,n&#61;500&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o13-limit.png" alt="/img/frac/o13-limit.png" /></p>
 <p>Orbit example &#40;14&#41;:</p>
-<pre><code class="language-Julia">juliafill("z^2+1",∂=[-2.5,2.5],n=500,cmap="nipy_spectral") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;z^2&#43;1&quot;,∂&#61;&#91;-2.5,2.5&#93;,n&#61;500,cmap&#61;&quot;nipy_spectral&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o14-limit.png" alt="/img/frac/o14-limit.png" /></p>
 <p>Orbit example &#40;15&#41;:</p>
-<pre><code class="language-Julia">juliafill("z^2-2",∂=[-2.5,2.5],n=500,cmap="nipy_spectral") |> fatou |> plot</code></pre> <img src="/img/frac/o15-limit.png" alt="/img/frac/o15-limit.png" /></p>
+<pre><code class="language-Julia">juliafill&#40;&quot;z^2-2&quot;,∂&#61;&#91;-2.5,2.5&#93;,n&#61;500,cmap&#61;&quot;nipy_spectral&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
+<p><img src="/img/frac/o15-limit.png" alt="/img/frac/o15-limit.png" /></p>
 <p>Orbit example &#40;16&#41;:</p>
-<pre><code class="language-Julia">juliafill("sin(2z)",∂=[-0.5pi,pi],x0=1.5,orbit=17,depth=4) |> orbit
-juliafill("sin(2z)",∂=[-0.35pi,0.7pi],n=800,cmap="nipy_spectral") |> fatou |> plot</code></pre>
+<pre><code class="language-Julia">juliafill&#40;&quot;sin&#40;2z&#41;&quot;,∂&#61;&#91;-0.5pi,pi&#93;,x0&#61;1.5,orbit&#61;17,depth&#61;4&#41; |&gt; orbit
+juliafill&#40;&quot;sin&#40;2z&#41;&quot;,∂&#61;&#91;-0.35pi,0.7pi&#93;,n&#61;800,cmap&#61;&quot;nipy_spectral&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/o16-orbit.png" alt="/img/frac/o16-orbit.png" /> <img src="/img/frac/o16-limit.png" alt="/img/frac/o16-limit.png" /></p>
 <p>Orbit example &#40;17&#41;:</p>
-<pre><code class="language-Julia">juliafill("3z+2",∂=[-pi,pi],n=500) |> fatou |> plot</code></pre>
-<p><img src="/img/frac/o17-limit.png" alt="/img/frac/o17-limit.png" /><div class="page-foot">
+<pre><code class="language-Julia">juliafill&#40;&quot;3z&#43;2&quot;,∂&#61;&#91;-pi,pi&#93;,n&#61;500&#41; |&gt; fatou |&gt; plot</code></pre>
+<p><img src="/img/frac/o17-limit.png" alt="/img/frac/o17-limit.png" /></p>
+<div class="page-foot">
   <div class="copyright">
 	  &copy; Dream Scatter. Modified: May 16, 2020 (<a href="https://github.com/CrucialFlow/Research/commits">git history</a>). Website built with <a href="https://github.com/tlienart/Franklin.jl">Franklin.jl</a>.
   </div>
