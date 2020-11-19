@@ -12,7 +12,7 @@ Foundations of the open source free software Grassmann.jl are based on different
 Interests include applications of Grassmann.jl software to explore relationships between quantum computing, number theory, geometric flows, aeroacoustics, relativity, optics, and electrical engineering.
 
 ~~~
-<iframe width="560" height="315" src="https://www.youtube.com/embed/7hlDRLEhc8o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7hlDRLEhc8o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 ~~~
 
 \tableofcontents <!-- you can use \toc as well -->
