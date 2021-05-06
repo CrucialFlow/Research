@@ -10,6 +10,7 @@ where appropriate -->
 Projects include mathematics and computer algebra research for differential geometric algebras, with an interest in aerospace engineering applications.
 Foundations of the open source free software Grassmann.jl are based on differential geometric algebra and developed in the Julia language.
 Interests include applications of Grassmann.jl software to explore relationships between quantum computing, number theory, geometric flows, aeroacoustics, relativity, optics, and electrical engineering.
+-> [Connect](/connect) <-
 
 ~~~
 <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/7hlDRLEhc8o" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
