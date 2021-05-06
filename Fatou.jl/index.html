@@ -37,6 +37,7 @@
 	  <a class="sidebar-nav-item" href="https://grassmann.crucialflow.com">Grassmann.jl</a>
 	  <a class="sidebar-nav-item" href="https://geophysics.crucialflow.com/dev">Geophysics.jl</a>
 	  <a class="sidebar-nav-item" href="https://reduce.crucialflow.com">Reduce.jl</a>
+	  <a class="sidebar-nav-item" href="/connect">Connect</a>
 	  <a class="sidebar-nav-item" href="https://github.com/chakravala">git: chakravala</a>
 	  <details>
 		<summary><a class="sidebar-nav-more " href="/research">Research</a></summary>
@@ -52,10 +53,10 @@
 </div>
 <div class="content container">
 <!-- Content appended here -->
-<div class="franklin-content"><h1 id="explore_fatou_sets_fractals"><a href="#explore_fatou_sets_fractals">Explore Fatou sets &amp; fractals</a></h1>
+<div class="franklin-content"><h1 id="explore_fatou_sets_fractals"><a href="#explore_fatou_sets_fractals" class="header-anchor">Explore Fatou sets &amp; fractals</a></h1>
 <p>Julia package for Fatou sets. Install using <code>Pkg.add&#40;&quot;Fatou&quot;&#41;</code> in Julia. See <a href="https://github.com/chakravala/Fatou.jl">https://github.com/chakravala/Fatou.jl</a> for source code. This package provides: <code>fatou</code>, <code>juliafill</code>, <code>mandelbrot</code>, <code>newton</code>, <code>basin</code>, <code>plot</code>, and <code>orbit</code>; along with various internal functionality using <code>Reduce</code> and Julia expressions to help compute <code>Fatou.FilledSet</code> efficiently. Full documentation is included. The <code>fatou</code> function can be applied to a <code>Fatou.Define</code> object to produce a <code>Fatou.FilledSet</code>, which can then be passed as an argument to the <code>plot</code> function of <code>PyPlot</code>. Creation of <code>Fatou.Define</code> objects is done via passing a function expression &#40;in variables <code>z</code>, <code>c</code>&#41; and optional keyword arguments to <code>juliafill</code>, <code>mandelbrot</code>, and <code>newton</code>.</p>
 <div class="franklin-toc"><ol><li><a href="#explore_fatou_sets_fractals">Explore Fatou sets &amp; fractals</a><ol><li><a href="#background">Background</a></li><li><a href="#example_details_plotting">Example details &amp; plotting</a><ol><li><a href="#generalized_newton_basin_fractals">Generalized Newton basin fractals</a></li><li><a href="#more_orbit_examples">More orbit examples</a></li></ol></li></ol></li></ol></div>
-<h2 id="background"><a href="#background">Background</a></h2>
+<h2 id="background"><a href="#background" class="header-anchor">Background</a></h2>
 <p>This package enables users of Julia lang to easily generate, explore, and share fractals of Julia, Mandelbrot, and Newton type. The name Fatou comes from the mathematician after whom the Fatou sets are named. Note that the Julia language is not named after the mathematician Julia after whom the Julia sets are named. This is a mere coincidence.</p>
 <p><strong>Definition</strong> <em>&#40;Julia set&#41;</em>: For any holomorphic function on a complex plane, the boundary of the set of points whose result diverges when function is iteratively evaluated at points.</p>
 <p><strong>Definition</strong> <em>&#40;Fatou set&#41;</em>: The Julia set’s complement is the set of fixed limit points from holomorphic recursion.</p>
@@ -64,7 +65,7 @@
 <p>The package has essentially two different plotting modes controlled by the <code>iter</code> boolean keyword, which toggles whether to color the image by iteration count or whether to use a default &#40;or custom&#41; limit-value coloring function.</p>
 <p>The number of Julia threads available is detected at the startup and is reported it back. When a specified Fatou set is computed, multi-threading is used to compute the pixels. Since each pixel is independent of any other pixel, it doesn’t matter in what order or on how many threads it is computed, the more you use the faster it is. The environment variable <code>JULIA_NUM_THREADS</code> is used to enable multi-threading for more than 1 thread.</p>
 <p>Please share your favorite fractals as <code>Fatou</code> snippet in the <a href="https://discourse.julialang.org/t/ann-fatou-jl-easily-share-julia-fractals">discussion thread</a>&#33;</p>
-<h2 id="example_details_plotting"><a href="#example_details_plotting">Example details &amp; plotting</a></h2>
+<h2 id="example_details_plotting"><a href="#example_details_plotting" class="header-anchor">Example details &amp; plotting</a></h2>
 <p><code>Fatou.Define</code> provides the following optional keyword arguments:</p>
 <pre><code class="language-Julia">Q::Expr 	&#61; :&#40;abs2&#40;z&#41;&#41;,           # escape criterion, &#40;z, c&#41; -&gt; Q
 C::Expr 	&#61; :&#40;&#40;angle&#40;z&#41;/&#40;2π&#41;&#41;*n^p&#41;# coloring, &#40;z, n&#61;iter., p&#61;exp.&#41; -&gt; C
@@ -96,7 +97,7 @@ plot&#40;fatou&#40;nf&#41;, bare&#61;true&#41;</code></pre>
 <p>It is also possible to switch to <code>mandelbrot</code> mode:</p>
 <pre><code class="language-Julia">mandelbrot&#40;:&#40;z^2&#43;c&#41;,n&#61;800,N&#61;20,∂&#61;&#91;-1.91,0.51,-1.21,1.21&#93;,cmap&#61;&quot;gist_earth&quot;&#41; |&gt; fatou |&gt; plot</code></pre>
 <p><img src="/img/frac/mandelbrot.png" alt="/img/frac/mandelbrot.png" /></p>
-<h3 id="generalized_newton_basin_fractals"><a href="#generalized_newton_basin_fractals">Generalized Newton basin fractals</a></h3>
+<h3 id="generalized_newton_basin_fractals"><a href="#generalized_newton_basin_fractals" class="header-anchor">Generalized Newton basin fractals</a></h3>
 <p>Another type are the Julia sets of the generalized Newton&#39;s method,</p>
 \[ z \mapsto z - m \frac{f(z)}{f'(z)}.) \]
 <p>Consider the polynomial map <code>f &#61; :&#40;z^3-1&#41;</code> with variable <code>m &#61; 1</code>. To get a Julia function that applies the Newton method to this formula use <code>η &#61; Fatou.newton_raphson&#40;f,m&#41;</code>. Repeated function composition converges towards cube-root of 1. For example,</p>
@@ -218,7 +219,7 @@ nf |&gt; fatou |&gt; plot
 basin&#40;nf,2&#41;</code></pre>
 \[ D_2(\epsilon) = \left\{z\in\mathbb{C}:\left|\,z - \left(e^{z} + 1\right) e^{- z} - \left(e^{z - \left(e^{z} + 1\right) e^{- z}} + 1\right) e^{- z + \left(e^{z} + 1\right) e^{- z}} - r_i\,\right|<\epsilon,\,\forall r_i(\,f(r_i)=0 )\right\}) \]
 <p><img src="/img/frac/nf17-iter.png" alt="/img/frac/nf17-iter.png" /> <img src="/img/frac/nf17-orbit.png" alt="/img/frac/nf17-orbit.png" /></p>
-<h3 id="more_orbit_examples"><a href="#more_orbit_examples">More orbit examples</a></h3>
+<h3 id="more_orbit_examples"><a href="#more_orbit_examples" class="header-anchor">More orbit examples</a></h3>
 <p>Orbit example &#40;1&#41;:</p>
 <pre><code class="language-Julia">juliafill&#40;&quot;z*exp&#40;1.5*&#40;1-z^2/50&#41;&#41;&quot;,∂&#61;&#91;0,15&#93;,x0&#61;1,orbit&#61;24&#41; |&gt; orbit
 juliafill&#40;&quot;z*exp&#40;1.5*&#40;1-z^2/50&#41;&#41;&quot;,∂&#61;&#91;0,15&#93;,x0&#61;0.1,orbit&#61;10,depth&#61;3&#41; |&gt; orbit</code></pre>
